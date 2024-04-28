@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
+    <title>Cinnamoroll Calcu</title>
+
+    <style>
+         body {
+            background-image: url(https://i.pinimg.com/564x/b9/c6/fa/b9c6fa369671e50fa2104de576e0ea67.jpg);
+            margin: 0;
+            padding: 0;
+            font-family: 'Gochi Hand';
+            font-size: 25px;
+            color: #633a0f; 
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .left-side {
+            flex: 2;
+            text-align: center;
+        }
+
+        .right-side {
+            flex: 2;
+        }
+
+        .calculator-box {
+            border: 2px dashed black;
+            background-color:#ffe9f3;
+            border
+            padding: 10px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .buttons-row {
+            display: flex;
+        }
+
+        .buttons button {
+            margin: 3px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 3px solid floralwhite;
+            border-radius: 5px;
+        }
+
+        .button1, .button2 {
+            background-color: #fcabc9;
+            color: white;
+        }
+
+        .button3, .button4 {
+            background-color: #fca0c2;
+            color: white;
+        }
+
+        /* Center the buttons on the whole screen */
+        .buttons {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 400px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="https://mystickermania.com/cdn/stickers/noob-pack/sanrio-cinnamoroll-tired-512x512.png" alt="Calculator">
+        </div>
+        <div class="right-side">
+            <div class="calculator-box">
+                <p>Mind trying out my calculator? ૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
+                <p>Given:</p>
+                <p>Enter a value for x:</p>
+                <input type="number" id="inputX">
+                <p>Enter a value for y:</p>
+                <input type="number" id="inputY">
+                <p>Click the buttons below to proceed.</p>
+            </div>
+            <div class="buttons">
+                <div class="buttons-row">
+                    <button class="button1" onclick="calculate('product')">Product of x and y</button>
+                    <button class="button2" onclick="calculate('raised')">x raised to y</button>
+                </div>
+                <div class="buttons-row">
+                    <button class="button3" onclick="calculate('remainder')">Get the remainder</button>
+                    <button class="button4" onclick="calculate('equal')">Check if x is equal to y</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate(operation) {
+            var x = parseFloat(document.getElementById('inputX').value);
+            var y = parseFloat(document.getElementById('inputY').value);
+            var result;
+
+            switch(operation) {
+                case 'product':
+                    result = x * y;
+                    break;
+                case 'raised':
+                    result = Math.pow(x, y);
+                    break;
+                case 'remainder':
+                    result = x % y;
+                    break;
+                case 'equal':
+                    result = x === y;
+                    break;
+                default:
+                    result = 'Invalid operation';
+            }
+
+            alert('Result: ' + result);
+        }
+    </script>
+</body>
+</html>
